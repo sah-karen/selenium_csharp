@@ -10,6 +10,7 @@ namespace PageObjects.PageObjects
     {
         //locators
         IWebElement TextArea => driver.FindElement(By.Name("my-textarea"));
+        IWebElement SubmitButton => driver.FindElement(By.TagName("button"));
         IWebDriver driver;
         public WebFormPage(IWebDriver driver)
         {
@@ -23,5 +24,10 @@ namespace PageObjects.PageObjects
             return this;
         }
         
+        public TargetPage SubmitForm()
+        {
+            SubmitButton.Click();
+            return new TargetPage(driver);
+        }
     }
 }
