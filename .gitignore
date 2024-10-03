@@ -1,0 +1,9 @@
+**/[Pp]ackages/*
+bin/
+obj/
+.vs/
+**/results/*
+*.opt
+*.log
+# Visual Studio Code
+.vscode

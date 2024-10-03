@@ -1,0 +1,48 @@
+
+1----------------------------
+https://www.youtube.com/watch?v=XqwUMGG1rtg  Visual Studio Code: Selenium 4 C# tutorial 2024
+dotnet new sln    creates sln
+dotnet new classlib -o selelnium_tests   create project
+dotnet sln add .\selelnium_tests\   add project to sln
+cd .\selelnium_tests\
+goto nuget.org
+Search selenium.Webdriver, click on it and copy pase command below
+dotnet add package Selenium.WebDriver --version 4.25.0
+do the same for Selenium.Support
+dotnet add package Selenium.Support --version 4.25.0
+NUnit
+dotnet add package NUnit --version 4.2.2
+NUnit3TestAdapter
+dotnet add package NUnit3TestAdapter --version 4.6.0
+Test.Sdk
+dotnet add package Microsoft.NET.Test.Sdk --version 17.11.1
+Install extension "NET Core Test Explorer" for runnig from VSCode
+----------------------------
+dotnet build
+dotnet test .\bin\Debug\net6.0\selelnium_tests.dll --filter TestCategory="Selenium"
+----------------------------
+Starting from version 115
+As of  Selenium 4.6.0 the manual configuration of the driver is optional, if this is not happening it will be automatically handled by Selenium Manager.
+You can check one of my videos here about this: https://youtu.be/R14wXBXJ2QE
+This version of ChromeDriver only supports Chrome version 98
+goto  site https://googlechromelabs.github.io/chrome-for-testing/ 
+!!! Important remove chromedriver from PATH in C:\chromdriver
+
+copy zip link to url of browezer press enter -will start download
+https://storage.googleapis.com/chrome-for-testing-public/129.0.6668.70/win64/chromedriver-win64.zip
+1----------------------------
+ Run test with name 
+ dotnet test .\bin\Debug\net6.0\selelnium_tests.dll --filter Name=FirstSeleniumTest
+ 2------------------
+ dotnet new classlib -o PageObjects
+ dotnet sln add .\PageObjects\ 
+  dotnet new classlib -o Tests
+
+-------------------------------
+echo "# selenium_csharp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:sah-karen/selenium_csharp.git
+git push -u origin main
