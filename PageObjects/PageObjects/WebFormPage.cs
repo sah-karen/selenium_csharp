@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using Utils.Reports;
 
 namespace PageObjects.PageObjects
 {
@@ -20,12 +21,14 @@ namespace PageObjects.PageObjects
         //methods
         public WebFormPage WriteTextToTextArea(string text)
         {
+            ExtentReporting.LogInfo($"Write '{text}' to text area");
             TextArea.SendKeys(text);
             return this;
         }
         
         public TargetPage SubmitForm()
         {
+            ExtentReporting.LogInfo("Click submit button");
             SubmitButton.Click();
             return new TargetPage(driver);
         }

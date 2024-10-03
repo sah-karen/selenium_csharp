@@ -20,6 +20,7 @@ Install extension "NET Core Test Explorer" for runnig from VSCode
 ----------------------------
 dotnet build
 dotnet test .\bin\Debug\net6.0\selelnium_tests.dll --filter TestCategory="Selenium"
+dotnet test .\bin\Debug\net6.0\Tests.dll
 ----------------------------
 Starting from version 115
 As of  Selenium 4.6.0 the manual configuration of the driver is optional, if this is not happening it will be automatically handled by Selenium Manager.
@@ -35,9 +36,14 @@ https://storage.googleapis.com/chrome-for-testing-public/129.0.6668.70/win64/chr
  dotnet test .\bin\Debug\net6.0\selelnium_tests.dll --filter Name=FirstSeleniumTest
  2------------------
  dotnet new classlib -o PageObjects
- dotnet sln add .\PageObjects\ 
-  dotnet new classlib -o Tests
+dotnet sln add .\PageObjects\ 
+dotnet new classlib -o Tests
+dotnet sln add .\Tests\ 
 
+dotnet new classlib -o Utils
+dotnet sln add .\Utils\ 
+cd Utils
+dotnet add package ExtentReports --version 4.1.0
 -------------------------------
 echo "# selenium_csharp" >> README.md
 git init
@@ -46,4 +52,4 @@ git commit -m "first commit"
 git remote add origin https://github.com/sah-karen/selenium_csharp.git
 git push -u origin master
 
-
+-----------------------------
