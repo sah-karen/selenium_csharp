@@ -21,14 +21,14 @@ namespace PageObjects.PageObjects
         //methods
         public WebFormPage WriteTextToTextArea(string text)
         {
-            ExtentReporting.LogInfo($"Write '{text}' to text area");
+            // ExtentReporting.Instance.LogInfo($"Write '{text}' to text area");
             TextArea.SendKeys(text);
             return this;
         }
         
         public TargetPage SubmitForm()
         {
-            ExtentReporting.LogInfo("Click submit button");
+            // ExtentReporting.Instance.LogInfo("Click submit button");
             SubmitButton.Click();
             return new TargetPage(driver);
         }

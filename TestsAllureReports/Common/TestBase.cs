@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Allure.Net.Commons;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -10,18 +11,19 @@ using PageObjects.PageObjects;
 using Utils.Common;
 using Utils.Reports;
 
-namespace Tests.Common
+namespace TestsAllureReports.Common
 {
     internal class TestBase
     {   
         protected IWebDriver? Driver { get; private set; }
         protected WebFormPage? WebForm { get; private set; }
         protected Browser Browser { get; private set; }
+        protected AllureReporting AllureReport { get; private set; } 
         
         [SetUp]
         public void Setup()
         {
-            ExtentReporting.Instance.CreateTest(TestContext.CurrentContext.Test.MethodName);
+            AllureReport = new AllureReporting();
 
             Driver = new ChromeDriver();
             Driver.Navigate().GoToUrl("https://www.selenium.dev/selenium/web/web-form.html");
@@ -34,7 +36,6 @@ namespace Tests.Common
         public void TearDown()
         {
             EndTest();
-            ExtentReporting.Instance.EndReporting();
             Driver.Quit();
         }
 
@@ -45,17 +46,21 @@ namespace Tests.Common
             switch (testStatus)
             {
                 case TestStatus.Failed:
-                    ExtentReporting.Instance.LogFail($"Test has failed {message}");
+                    AllureReport?.LogStep($"Test has failed {message}");
                     break;
                 case TestStatus.Skipped:
-                    ExtentReporting.Instance.LogFail($"Test skipped {message}");
+                    AllureReport?.LogStep($"Test skipped {message}");
                     break;
                 default:
                     break;
             }
 
-            // extent report 
-            ExtentReporting.Instance.LogScreenShoot("Ending test", Browser.GetScreenshot());
+            //allure report
+            var screenshot = Browser.SaveScreenshot();
+            TestContext.AddTestAttachment(screenshot);
+            // ???? dont work from video AllureLifecycle.Instance.AddAttachment("end test", "image/png", screenshot);
+            AllureApi.AddAttachment("end test", "image/png", screenshot);  
+
         }
     }
 }

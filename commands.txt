@@ -52,4 +52,20 @@ git commit -m "first commit"
 git remote add origin https://github.com/sah-karen/selenium_csharp.git
 git push -u origin master
 
------------------------------
+----------------------------- Add Allure package
+  4.1k on github- alternative to ExtentReports package
+cd selenium_csharp\Tests
+dotnet add package Allure.NUnit --version 2.12.1
+cd selenium_csharp\Utils
+dotnet add package Allure.NUnit --version 2.12.1
+
+ -- download nodejs msi from nodejs.org, Instal- installed to C:\Program Files\nodejs 75mb
+ npm install -g allure-commandline --save-dev
+ -- set PATH varaible C:\Users\sahka\AppData\Roaming\npm\node_modules\allure-commandline\dist\bin
+      allure-commandline folder 29mb 
+   allure reqired to install Java 8 or higher.
+   Goto https://www.java.com/en/download/ and download  jre-8u421-windows-x64.exe and run it
+   set PATH varaible to C:\Program Files\Java\latest
+   
+   in cmd window run below to get html report form allure-result folder
+allure serve C:\Users\sahka\Desktop\learndotNet\selenium_csharp\Tests\bin\Debug\net6.0\allure-results

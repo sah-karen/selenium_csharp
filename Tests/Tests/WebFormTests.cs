@@ -13,7 +13,7 @@ namespace Tests.Tests
         [Test]
         public void WriteTextToTextAreaTest()
         {
-            ExtentReporting.LogInfo("Starting test - submit form");
+            ExtentReporting.Instance.LogInfo("Starting test - submit form");
             var expected = "Received!";
             var text = Guid.NewGuid().ToString();
             var message = WebForm
@@ -26,14 +26,14 @@ namespace Tests.Tests
         [Test]
         public void WriteTextToTextAreaNegativeTest()
         {
-            ExtentReporting.LogInfo("Starting negative test - submit form");
+            ExtentReporting.Instance.LogInfo("Starting negative test - submit form");
             var expected = "Received failed!";
             var text = Guid.NewGuid().ToString();
             var message = WebForm
                 .WriteTextToTextArea(text)
                 .SubmitForm()
                 .GetMessage();
-            Assert.That(message, Is.EqualTo(expected));
+             Assert.That(message, Is.EqualTo(expected));
         }
 
     }
