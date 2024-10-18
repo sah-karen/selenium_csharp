@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Tests.Common;
+using TestsDI.Common;
 using Utils.Reports;
 
-namespace Tests.Tests
+namespace TestsDI.Tests
 {
     internal class WebFormTests : TestBase
     {

@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 
 namespace Utils.Common
 {
-    public class Browser
+    public class Browser: IBrowser
     {
         IWebDriver driver;
         public Browser(IWebDriver driver)

@@ -54,7 +54,10 @@ git push -u origin master
 
 ----------------------------- Add Allure package
   4.1k on github- alternative to ExtentReports package
-cd selenium_csharp\Tests
+dotnet.exe new classlib -o TestsAllureReports 
+dotnet.exe sln add TestsAllureReports 
+  copy Tests files to TestsAllureReports and make approriate changes
+cd selenium_csharp\TestsAllureReports
 dotnet add package Allure.NUnit --version 2.12.1
 cd selenium_csharp\Utils
 dotnet add package Allure.NUnit --version 2.12.1
@@ -68,4 +71,10 @@ dotnet add package Allure.NUnit --version 2.12.1
    set PATH varaible to C:\Program Files\Java\latest
    
    in cmd window run below to get html report form allure-result folder
-allure serve C:\Users\sahka\Desktop\learndotNet\selenium_csharp\Tests\bin\Debug\net6.0\allure-results
+allure serve C:\Users\sahka\Desktop\learndotNet\selenium_csharp\TestsAllureReports\bin\Debug\net6.0\allure-results
+
+----------------------------- Add  Autofac package fpr DI project 
+selenium_csharp\dotnet.exe new classlib -o TestsDI
+selenium_csharp\dotnet.exe sln add .\TestsDI
+cd TestsDI
+dotnet add package Autofac --version 8.1.1

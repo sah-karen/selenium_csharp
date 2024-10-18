@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Tests.Common;
+using TestsExtentReportsParallelExecution.Common;
 using Utils.Reports;
 
-namespace Tests.Tests
+namespace TestsExtentReportsParallelExecution.Tests
 {
-    internal class WebFormTests : TestBase
+    [Parallelizable(ParallelScope.All)]
+    internal class TestsExtentReports : TestBase
     {
         [Test]
         public void WriteTextToTextAreaTest()
         {
-            ExtentReporting.Instance.LogInfo("Starting test - submit form");
+            ExtentParallelReporting.Instance.LogInfo("Starting test - submit form");
             var expected = "Received!";
             var text = Guid.NewGuid().ToString();
-            var message = WebForm?
+            var message = WebForm
                 .WriteTextToTextArea(text)
                 .SubmitForm()
                 .GetMessage();
@@ -26,10 +27,10 @@ namespace Tests.Tests
         [Test]
         public void WriteTextToTextAreaNegativeTest()
         {
-            ExtentReporting.Instance.LogInfo("Starting negative test - submit form");
+            ExtentParallelReporting.Instance.LogInfo("Starting negative test - submit form");
             var expected = "Received failed!";
             var text = Guid.NewGuid().ToString();
-            var message = WebForm?
+            var message = WebForm
                 .WriteTextToTextArea(text)
                 .SubmitForm()
                 .GetMessage();

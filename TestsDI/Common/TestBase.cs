@@ -2,33 +2,34 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using PageObjects.PageObjects;
 using Utils.Common;
 using Utils.Reports;
 
-namespace Tests.Common
+namespace TestsDI.Common
 {
     internal class TestBase
     {   
         protected IWebDriver? Driver { get; private set; }
         protected WebFormPage? WebForm { get; private set; }
-        protected Browser? Browser { get; private set; }
+        protected IBrowser? Browser { get; private set; }
         
         [SetUp]
         public void Setup()
         {
+            var container = ContainerConfig.Configure();
             ExtentReporting.Instance.CreateTest(TestContext.CurrentContext.Test.MethodName);
 
-            Driver = new ChromeDriver();
+            Driver = container.Resolve<IWebDriver>();
             Driver.Navigate().GoToUrl("https://www.selenium.dev/selenium/web/web-form.html");
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            WebForm = new WebFormPage(Driver);
-            Browser = new Browser(Driver);
+            WebForm = container.Resolve<WebFormPage>();
+            Browser = container.Resolve<IBrowser>();
         }
         [TearDown]
         public void TearDown()

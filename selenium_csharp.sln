@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsAllureReports", "TestsAllureReports\TestsAllureReports.csproj", "{C2979E82-F646-4F90-8734-DA3314C88DFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsExtentReportsParallelExecution", "TestsExtentReportsParallelExecution\TestsExtentReportsParallelExecution.csproj", "{55352FBF-E2CF-47CB-82FD-ED6ABFCBA964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsDI", "TestsDI\TestsDI.csproj", "{5F21512D-3352-43BE-ACCC-7DF35BB6BA12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{C2979E82-F646-4F90-8734-DA3314C88DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2979E82-F646-4F90-8734-DA3314C88DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2979E82-F646-4F90-8734-DA3314C88DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55352FBF-E2CF-47CB-82FD-ED6ABFCBA964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55352FBF-E2CF-47CB-82FD-ED6ABFCBA964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55352FBF-E2CF-47CB-82FD-ED6ABFCBA964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55352FBF-E2CF-47CB-82FD-ED6ABFCBA964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F21512D-3352-43BE-ACCC-7DF35BB6BA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F21512D-3352-43BE-ACCC-7DF35BB6BA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F21512D-3352-43BE-ACCC-7DF35BB6BA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F21512D-3352-43BE-ACCC-7DF35BB6BA12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
